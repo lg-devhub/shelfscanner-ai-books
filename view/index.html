@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShelfScanner AI — Book Repository</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-content">
+      <div class="brand">
+        <span class="brand-badge">AI</span>
+        <div>
+          <h1>ShelfScanner Repository</h1>
+          <p class="subtitle">Semantic book recommendations generated from your shelf</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Filter by title, author, or keyword..."
+          aria-label="Filter recommendations"
+        />
+        <select id="sortSelect" aria-label="Sort recommendations">
+          <option value="similarity">Highest Match</option>
+          <option value="title">Title (A–Z)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="status-bar" id="statusBar">
+      <span id="resultCount">Loading recommendations...</span>
+      <span class="timestamp" id="scanTimestamp"></span>
+    </section>
+
+    <section class="books-grid" id="booksGrid">
+      <!-- Cards injected dynamically via script.js -->
+    </section>
+  </main>
+
+  <!-- Modal for full book details -->
+  <div class="modal-backdrop" id="bookModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="closeModal" aria-label="Close modal">&times;</button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
